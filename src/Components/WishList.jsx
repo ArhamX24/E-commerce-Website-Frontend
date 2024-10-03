@@ -18,7 +18,7 @@ const WishList = () => {
   return (
     <div>
     <div>
-      <div className={Theme == 'light' ? 'bg-slate-100 text-black' : 'bg-slate-900 text-slate-100'}>
+      <div className={Theme == 'light' ? 'bg-slate-100 text-black min-h-screen' : 'bg-slate-900 text-slate-100 min-h-screen'}>
       <div className="overflow-x-auto">
   <table className="table">
     <thead className={Theme == 'light' ? 'text-black p-3' : 'text-slate-100'}>

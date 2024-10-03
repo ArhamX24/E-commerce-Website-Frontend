@@ -11,11 +11,27 @@ import { addProductToWishlist } from "../Store/WishlistSlice";
 import { removeProductFromWishlist } from "../Store/WishlistSlice";
 import { addCart } from "../Store/CartSlice";
 import ProductImages from "./ProductImagesCarousel";
+import { useSelector } from "react-redux";
 
 const ProductPage = () => {
     let dispatch = useDispatch()
     let {Theme} = useContext(ThemeStore)
     let { id } = useParams();
+
+    const cartData = useSelector((Store)=> Store.cart.cart)
+
+    let itemInCart = () => {
+      let idx = cartData.findIndex((cartObj)=> {
+        return cartObj.data.id == id
+      })
+
+      if(idx == -1){
+        return false
+      }else{
+        return true
+      }
+    }
+    
 
     const [WishList, setWishList] = useState(false)
 
@@ -42,13 +58,17 @@ const ProductPage = () => {
     }
   return (
     <>
-    <div className={Theme == 'light' ? 'bg-slate-100 h-full w-full p-6 text-black ' : 'bg-slate-800 h-full w-full p-6 text-white'}>
+    <div className={Theme == 'light' ? 'bg-slate-100 min-h-screen w-full p-6 text-black ' : 'bg-slate-800 min-h-screen w-full p-6 text-white'}>
       <div className="flex justify-start flex-row">
         {
           <ProductImages img={images}></ProductImages>
         }
       <div className={ Theme == 'light' ? 'card lg:card-side bg-slate-100  w-1/2 m-auto  text-black h-1/2' : "card lg:card-side bg-slate-900  w-1/2 m-auto  text-white h-1/2"}>
+      
       <div className={Theme == 'light' ? "border-x border-black w-1/2 p-10" : "border-x border-white w-1/2 p-10" }>
+      {
+        itemInCart() == true ? <div className={Theme == 'light' ? "bg-slate-600 text-white px-1 py-4 rounded-3xl w-36 flex items-center justify-center" : "bg-slate-300 text-black px-1 py-4 rounded-3xl w-36 flex items-center justify-center"}>Added To Cart</div> : ""
+      }
         <figure>
           <img
             src={thumbnail}

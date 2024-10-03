@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { ThemeStore } from './ThemeContext'
+
 
 const Hero = ({productsData}) => {
 
-    console.log(productsData);
+  const {Theme} = useContext(ThemeStore)
 
     let {id} = productsData;
 
@@ -13,15 +15,6 @@ const Hero = ({productsData}) => {
         thumbnailArray.push(product.thumbnail)
     });
 
-    // console.log(thumbnailArray);
-
-    let navigate = useNavigate();
-
-    const handleNavigation = () => {
-      navigate(`/product/${id}`)
-    }
-    
-
   return (
     <div className='flex justify-around items-center m-4'>
         <div className='w-1/2 h-72 bg-[url("/images/hero-sale.jpg")] bg-cover bg-center bg-no-repeat '>
@@ -29,15 +22,15 @@ const Hero = ({productsData}) => {
         <div className="carousel carousel-center cursor-pointer">
 
   <div className="carousel-item relative ">
-  <Link onClick={handleNavigation}><img src={thumbnailArray[9]} alt="Pizza" /></Link>
+  <Link to={`/product/${10}`}><img src={thumbnailArray[9]} alt="Pizza" /></Link>
         <div className='absolute left-10 top-32 bg-red-500 text-white'>On 75% Discount</div>
   </div>
   <div className="carousel-item relative cursor-pointer">
-      <Link onClick={handleNavigation}><img src={thumbnailArray[14]} alt="Pizza"/></Link>
+      <Link to={`product/${15}`}><img src={thumbnailArray[14]} alt="Pizza"/></Link>
       <div className='absolute left-10 top-32 bg-red-500 text-white'>On 50% Discount</div>
   </div>
   <div className="carousel-item relative cursor-pointer">
-    <Link onClick={handleNavigation}>
+    <Link to={`product/${8}`}>
     <img
       src={thumbnailArray[7]}
       alt="Pizza" />

@@ -1,13 +1,28 @@
 import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { ThemeStore } from "./ThemeContext";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCart } from "../Store/CartSlice";
 
 const Card = ({Obj}) => {
   let dispatch = useDispatch()
   let { title, category, price, thumbnail, rating , id} = Obj;
   let {Theme} = useContext(ThemeStore)
+
+  
+  const cartData = useSelector((Store)=> Store.cart.cart)
+
+  let itemInCart = () => {
+    let idx = cartData.findIndex((cartObj)=> {
+      return cartObj.data.id == id
+    })
+
+    if(idx == -1){
+      return false
+    }else{
+      return true
+    }
+  }
 
 
   let navigate = useNavigate();
@@ -24,6 +39,10 @@ const Card = ({Obj}) => {
   return (
     <div>
       <div className={ Theme == 'light' ? 'card bg-slate-100 w-72 m-2 text-black cursor-pointer border-x-4 rounded-md' :  "card bg-slate-800 w-72 m-2 text-white cursor-pointer rounded-md"} onClick={handleNavigation}>
+      {
+        itemInCart() ? <div className={Theme == 'light' ? "bg-slate-600 text-white px-1 py-3 rounded-3xl w-36 flex items-center justify-center" : "bg-slate-300 text-black px-1 py-3 rounded-3xl w-36 flex items-center justify-center"}>Added To Cart</div> : ""
+      }
+      
         <div className="">
         <figure>
           <img

@@ -3,7 +3,7 @@ import { ThemeStore } from './ThemeContext'
 import { useSelector } from 'react-redux';
 import Cartitems from './Cartitems';
 import { useDispatch } from 'react-redux';
-import { clearCart } from '../Store/CartSlice';
+import { clearCart, ascendingOrderSort, descendingOrderSort } from '../Store/CartSlice';
 
 
 
@@ -29,7 +29,7 @@ const Cart = () => {
 
 
   return (
-    <div className={Theme == 'light' ? 'bg-slate-100 text-black' : 'bg-slate-900 text-slate-100'}>
+    <div className={Theme == 'light' ? 'bg-slate-100 text-black min-h-screen' : 'bg-slate-900 text-slate-100 min-h-screen'}>
       <div className="overflow-x-auto">
   <table className="table">
     <thead className={Theme == 'light' ? 'text-black p-3' : 'text-slate-100'}>
@@ -38,7 +38,7 @@ const Cart = () => {
         </th>
         <th>Product</th>
         <th>Name</th>
-        <th>Price</th>
+        <th className='flex items-center'><span><svg onClick={()=> dispatch(ascendingOrderSort())} className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8L18 14H6L12 8Z"></path></svg></span>Price<span><svg onClick={()=> dispatch(descendingOrderSort())} className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 16L6 10H18L12 16Z"></path></svg></span></th>
         <th>Quantity</th>
       </tr>
     </thead>

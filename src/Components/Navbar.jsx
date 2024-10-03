@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { ThemeStore } from "./ThemeContext";
 import { useSelector } from "react-redux";
 import '../CSS for Components/navbar.css'
+import {baseUrl, logoutUrl} from "../Utility/Constant"
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../Store/UserSlice";
 
 const Navbar = () => {
   const { Theme, setTheme } = useContext(ThemeStore);
@@ -10,9 +15,23 @@ const Navbar = () => {
   let darkTheme = "navbar bg-slate-950";
   let lightTheme = "navbar bg-slate-300 text-black flex items-center";
 
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
+
   let changeTheme = () => {
     setTheme(Theme == 'light' ? 'dark' : 'light');
   }
+
+  const handleLogout = async () => {
+    let res = await axios.post(baseUrl+logoutUrl, {}, {withCredentials:true})
+    let data = res.data;
+
+    if(data.result == true){
+      dispatch(deleteUser());
+      navigate('/login');
+    }
+  }
+  
 
   const wishlistData = useSelector((Store)=> Store.wishlist.wishlist);
 
@@ -80,6 +99,7 @@ const Navbar = () => {
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
   </svg>
 </label>
+<li><button onClick={handleLogout} className="btn btn-sm btn-outline btn-error ml-2">Logout</button></li>
           </ul>
         </div>
       </div>

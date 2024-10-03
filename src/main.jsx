@@ -18,6 +18,9 @@ import ThemeContext from './Components/ThemeContext.jsx'
 import { Provider } from 'react-redux'
 import Store from './Store/Store.js'
 import WishList from './Components/WishList.jsx'
+import Login from './Components/Login.jsx'
+import SignUp from './Components/SignUp.jsx'
+import AuthWrapper from './Components/AuthWrapper.jsx'
 
 
 
@@ -25,7 +28,7 @@ import WishList from './Components/WishList.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <AuthWrapper><App></App></AuthWrapper>,
     children: [
       {
         path: "/",
@@ -56,6 +59,14 @@ const router = createBrowserRouter([
     ],
     errorElement : <Error></Error>
   },
+  {
+    path: "/login",
+    element: <Login></Login>
+  },
+  {
+    path: "/signup",
+    element: <SignUp></SignUp>
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

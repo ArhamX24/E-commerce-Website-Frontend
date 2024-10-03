@@ -39,11 +39,23 @@ const CartSlice = createSlice({
       let existingProduct = state.cart[existingProductIdx];
       if (existingProduct.quantity > 1) {
         existingProduct.quantity = existingProduct.quantity - 1;
+      }else{
+        state.cart.splice(existingProductIdx, 1)
       }
     },
     clearCart: (state, action) => {
       state.cart = [];
     },
+    ascendingOrderSort: (state, action) =>{
+      let cartItems = state.cart;
+      cartItems.sort((a, b) => a.data.price - b.data.price);
+      state.cart = cartItems;
+    },
+    descendingOrderSort: (state, action) =>{
+      let cartItems = state.cart;
+      cartItems.sort((a, b) => b.data.price - a.data.price);
+      state.cart = cartItems
+    }
   },
 });
 
@@ -53,6 +65,8 @@ export const {
   quantityDecrease,
   quantityIncrease,
   clearCart,
+  ascendingOrderSort,
+  descendingOrderSort
 } = CartSlice.actions;
 
 export default CartSlice.reducer;

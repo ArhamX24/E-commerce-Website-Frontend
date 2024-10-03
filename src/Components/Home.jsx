@@ -16,7 +16,7 @@ const Home = () => {
     let {Theme, setTheme} = useContext(ThemeStore);
 
     const getData = async () => {
-      let data = await fetch('https://dummyjson.com/products?limit=100');
+      let data = await fetch('https://dummyjson.com/products?limit=40');
       let productsData = await data.json();
       console.log(productsData);
       

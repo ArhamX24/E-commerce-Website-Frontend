@@ -1,0 +1,6 @@
+export const baseUrl = "http://localhost:8000"
+export const signUpUrl = "/users/signup"
+export const loginUrl = "/users/login"
+export const getUserUrl = "/users/"
+export const logoutUrl = "/users/logout"
+export const updateUrl = "/users/update"
