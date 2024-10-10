@@ -14,11 +14,12 @@ import ProductImages from "./ProductImagesCarousel";
 import { useSelector } from "react-redux";
 
 const ProductPage = () => {
-    let dispatch = useDispatch()
-    let {Theme} = useContext(ThemeStore)
-    let { id } = useParams();
+  
+  let dispatch = useDispatch()
+  let {Theme} = useContext(ThemeStore)
+  let { id } = useParams();
 
-    const cartData = useSelector((Store)=> Store.cart.cart)
+  const cartData = useSelector((Store)=> Store.cart.cart)
 
     let itemInCart = () => {
       let idx = cartData.findIndex((cartObj)=> {
@@ -32,9 +33,12 @@ const ProductPage = () => {
       }
     }
     
-
+    let itemInWishList = ()=>{
+    
+    }
+    
+    
     const [WishList, setWishList] = useState(false)
-
     const [OpenIdx, setOpenIdx] = useState(null)
     
     let ProductData = ProductsData(id);

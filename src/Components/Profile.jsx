@@ -9,6 +9,8 @@ import { addUser } from "../Store/UserSlice";
 
 const Profile = () => {
 
+  let dispatch = useDispatch()
+
   let {Theme} = useContext(ThemeStore);
   let userData = useSelector((Store)=> Store.user);
 
@@ -45,7 +47,7 @@ const Profile = () => {
         <p> userName : {userName} </p>
       </label>
       <br />
-      <button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Update Username</button>
+      {/* <button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Update Username</button>
       <dialog id="my_modal_2" className="modal text-slate-200">
         <div className="modal-box">
           <div className="join">
@@ -63,7 +65,7 @@ const Profile = () => {
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
-      </dialog>
+      </dialog> */}
     </div>
   );
 };
