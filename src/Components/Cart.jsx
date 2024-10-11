@@ -55,8 +55,8 @@ const Cart = () => {
     <span className='text-xl'>Total <span className='font-bold'>${totalAmount}</span></span>
     </div>
     <div className='w-full flex justify-end p-5'>
-    <button onClick={()=> dispatch(clearCart())} className="btn btn-wide btn-error btn-outline mx-5">Clear Cart</button>
-    <button className="btn btn-wide btn-outline btn-success">Proceed To CheckOut</button>
+    <button onClick={()=> dispatch(clearCart())} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg lg:btn-wide btn-error btn-outline mx-5">Clear Cart</button>
+    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg lg:btn-wide btn-outline btn-success">Proceed To CheckOut</button>
     </div>
     </>
   }

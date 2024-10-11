@@ -53,7 +53,7 @@ const Home = () => {
     
     return (
     <div className={Theme == 'light' ? 'bg-slate-100' : 'bg-slate-900'}>
-            <div className="search flex w-2/5 m-auto pt-3">
+            <div className="search flex w-full lg:w-2/5 m-1 lg:m-auto pt-3">
                 <input value={Search} onChange={(e)=> {setSearch(e.target.value)}}  type="text"placeholder="Type here" className="input input-bordered w-full max-w-lg"/>
                 <button onClick={searchBtn} className={ Theme == 'light' ?  "btn btn-active mx-3" : "btn btn-outline mx-3"} >Search</button>
             </div>
@@ -62,15 +62,16 @@ const Home = () => {
       }
       
       <div className='flex justify-between items-center w-full py-5'>
-        <h1 className={Theme == "light" ? 'text-3xl ml-2 text-black' : 'text-3xl ml-2 text-white'}>Our Latest Deals This Week</h1>
+      <h3 className={Theme == "light" ? 'text-sm lg:text-3xl text-center ml-4 text-black' : 'text-sm lg:text-3xl text-center ml-4 text-white'}>Filters</h3>
         <div className='flex justify-around'>
-            <button onClick={topRated}  className={ Theme == 'light' ?  "btn btn-active mx-4" : "btn btn-outline  mx-4"} >Top Rated</button>
-            <button onClick={()=> {handleCategory('furniture')}} className={ Theme == 'light' ?  "btn btn-active mx-4" : "btn btn-outline mx-4"} >Furniture</button>
-            <button  onClick={() => {handleCategory("beauty")}} className={ Theme == 'light' ?  "btn btn-active mx-4" : "btn btn-outline mx-4"} >Beauty</button>
-            <button  onClick={() => {handleCategory("groceries")}}className={ Theme == 'light' ?  "btn btn-active mx-4" : "btn btn-outline mx-4"} >Groceries</button>
+            <button onClick={topRated}  className={ Theme == 'light' ?  "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-active mx-1 lg:mx-4" : "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-outline  mx-1 lg:mx-4"} >Top Rated</button>
+            <button onClick={()=> {handleCategory('furniture')}} className={ Theme == 'light' ?  "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-active mx-1 lg:mx-4" : "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline mx-1 lg:mx-4"} >Furniture</button>
+            <button  onClick={() => {handleCategory("beauty")}} className={ Theme == 'light' ?  "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-active mx-1 lg:mx-4" : "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-outline mx-1 lg:mx-4"} >Beauty</button>
+            <button  onClick={() => {handleCategory("groceries")}}className={ Theme == 'light' ?  "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-active mx-1 lg:mx-4" : "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-outline mx-1 lg:mx-4"} >Groceries</button>
         </div>
         </div>
-        <div className='flex justify-around items-center flex-wrap m-4'>
+        <h1 className={Theme == "light" ? 'text-sm lg:text-3xl text-center mb-4 text-black' : 'text-sm lg:text-3xl text-center mb-4 text-white'}>Our Latest Deals This Week</h1>
+        <div className='flex justify-around items-center flex-wrap m-2 lg:m-4'>
               {
                 Products == null ? <Shimmer></Shimmer>:
                 Products.map((obj)=>{

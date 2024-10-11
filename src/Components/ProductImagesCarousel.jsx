@@ -6,8 +6,8 @@ const ProductImages = ({img}) => {
       {
         img.map((item)=>{
           return (
-            <div className="w-52 border-4">
-              <img src={item} alt="product image"/>
+            <div className="max-w-52 border-4">
+              <img src={item} alt="product image" className="sm:w-20 md:w-52 "/>
             </div>
           )
         })

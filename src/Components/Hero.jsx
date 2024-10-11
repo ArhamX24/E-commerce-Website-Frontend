@@ -16,13 +16,13 @@ const Hero = ({productsData}) => {
     });
 
   return (
-    <div className='flex justify-around items-center m-4'>
-        <div className='w-1/2 h-72 bg-[url("/images/hero-sale.jpg")] bg-cover bg-center bg-no-repeat '>
+    <div className='lg:flex justify-around items-center m-4 hidden'>
+        <div className=' w-full md:w-1/2 h-20 md:h-72 bg-[url("/images/hero-sale.jpg")] bg-cover bg-center bg-no-repeat '>
         </div>
         <div className="carousel carousel-center cursor-pointer">
 
-  <div className="carousel-item relative ">
-  <Link to={`/product/${10}`}><img src={thumbnailArray[9]} alt="Pizza" /></Link>
+  <div className="carousel-item relative">
+  <Link to={`/product/${10}`}><img src={thumbnailArray[9]} alt="Pizza"/></Link>
         <div className='absolute left-10 top-32 bg-red-500 text-white'>On 75% Discount</div>
   </div>
   <div className="carousel-item relative cursor-pointer">
