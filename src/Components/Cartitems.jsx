@@ -26,7 +26,7 @@ const Cartitems = ({cartObj}) => {
         <th>
         </th>
         <td>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center  gap-3">
             <div className="avatar">
               <div className="mask mask-squircle h-12 w-12">
                 <Link onClick={handleNavigation}><img
@@ -36,12 +36,12 @@ const Cartitems = ({cartObj}) => {
             </div>
           </div>
         </td>
-        <td>
+        <td className='overflow-ellipsis text-sm'>
          {title}
         </td>
-        <td>$ {quantity > 1 ? price * quantity : price }</td>
+        <td>$ {quantity > 1 ? Math.trunc(price * quantity ): price }</td>
         <td><span className='mx-1 cursor-pointer' onClick={()=> dispatch(quantityIncrease(id))}>➕</span>{quantity}<span className='mx-1 cursor-pointer' onClick={()=> dispatch(quantityDecrease(id))}>➖</span></td>
-        <button onClick={()=> dispatch(removeCart(id))} className="btn btn-outline btn-error mt-3">Remove</button>
+        <button onClick={()=> dispatch(removeCart(id))} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-error mt-3">Remove</button>
       </tr>
       </>
   )
