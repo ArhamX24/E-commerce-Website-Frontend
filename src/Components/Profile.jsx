@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, {useContext, useRef } from "react";
 import { ThemeStore } from "./ThemeContext";
 import { useSelector } from "react-redux";
 import { updateUrl, baseUrl } from "../Utility/Constant";

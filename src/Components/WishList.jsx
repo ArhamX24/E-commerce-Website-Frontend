@@ -1,7 +1,6 @@
 import React, {useContext} from 'react'
 import {ThemeStore} from './ThemeContext'
 import { useSelector, useDispatch} from 'react-redux';
-import { removeProductFromWishlist } from '../Store/WishlistSlice';
 import WishListItems from './WishListItems';
 
 const WishList = () => {

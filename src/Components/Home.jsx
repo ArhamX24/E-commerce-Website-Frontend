@@ -1,11 +1,9 @@
 import React , {useState, useEffect, useContext} from 'react'
 import Card from './Card'
 import Shimmer from './Shimmer';
-import { Link } from 'react-router-dom';
 import { ThemeStore } from './ThemeContext';
 import About from './About';
 import Hero from './Hero';
-import ProductsData from '../CustomHooks/ProductsData';
 
 const Home = () => {
     

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { json } from "server/reply";
 import SingleProductShimmer from "./SingleProductShimmer";
 import ProductsData from "../CustomHooks/ProductsData";
 import { ThemeStore } from "./ThemeContext";
