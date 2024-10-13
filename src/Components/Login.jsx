@@ -70,8 +70,8 @@ const Login = () => {
         <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-slate-100">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
-              alt="Your Company"
-              src="/images/shopping-cart.png"
+              alt="Logo-img"
+              src="images\logo.png"
               className="mx-auto h-10 w-auto"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-800">

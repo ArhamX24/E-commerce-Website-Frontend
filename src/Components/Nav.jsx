@@ -143,7 +143,7 @@ const Navbar = () => {
     </ul>
   </div>
   <Link to={"/"} className="btn btn-ghost text-md md:text-3xl text-navColor font-medium">
-          <img src="/images/shopping-cart.png" alt="Logo" className="w-8 md:w-12"/>
+          <img src="images\logo.png" alt="Logo-img" className="w-8 md:w-12 text-sm"/>
             SHOPIFY
           </Link>
 </div>
