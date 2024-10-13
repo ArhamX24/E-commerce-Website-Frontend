@@ -41,7 +41,7 @@ const Cartitems = ({cartObj}) => {
         </td>
         <td>$ {quantity > 1 ? Math.trunc(price * quantity ): price }</td>
         <td><span className='mx-1 cursor-pointer' onClick={()=> dispatch(quantityIncrease(id))}>➕</span>{quantity}<span className='mx-1 cursor-pointer' onClick={()=> dispatch(quantityDecrease(id))}>➖</span></td>
-        <button onClick={()=> dispatch(removeCart(id))} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-error mt-3">Remove</button>
+        <button onClick={()=> dispatch(removeCart(id))} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-error my-3">Remove</button>
       </tr>
       </>
   )

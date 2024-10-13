@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:8000"
+export const baseUrl = "https://shopify-e-commerce-backend-1.onrender.com"
 export const signUpUrl = "/users/signup"
 export const loginUrl = "/users/login"
 export const getUserUrl = "/users/"

@@ -23,12 +23,16 @@ const Navbar = () => {
   }
 
   const handleLogout = async () => {
-    let res = await axios.post(baseUrl+logoutUrl, {}, {withCredentials:true})
-    let data = res.data;
-
-    if(data.result == true){
-      dispatch(deleteUser());
-      navigate('/login');
+    try{
+      let res = await axios.post(baseUrl+logoutUrl, {}, {withCredentials:true})
+      let data = res.data;
+  
+      if(data.result == true){
+        dispatch(deleteUser());
+        navigate('/login');
+      }
+    }catch(err){
+      console.log(err);
     }
   }
   
